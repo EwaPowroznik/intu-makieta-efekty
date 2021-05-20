@@ -1,0 +1,151 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-size:1vh;
+}
+//variables
+$background:no-repeat center center/contain;
+$glow:#f8ea69;
+$glow-darker:#e4e000;
+
+
+.container{
+    background:linear-gradient(rgba(248, 248, 108, 0.7), rgba(46, 139, 46, 0.7));
+    width:100vw;
+    height:100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+    .main_box{
+        width:65%;
+        height:38%;
+        position:absolute;
+        border-radius: 2vh;
+        display:grid;
+        grid-template-columns: repeat(5, 1fr);
+        align-items: top;
+        justify-content: center;
+        padding:1vw;
+        grid-gap:1vw;
+
+        .card{
+            width:100%;
+            height:auto;
+            position:relative;
+            transform-style: flat;
+            // backface-visibility: hidden;
+            transition: all 1s ease-out;
+            animation:moveIn 1.5s ease-out;
+            animation-fill-mode: backwards;
+
+
+            @keyframes moveIn {
+                0%{
+                    opacity:0;
+                    transform:translateY(-20vh);
+                }
+                80%{
+                    transform:translateY(2vh);
+                }
+                100%{
+                    opacity:1;
+                    transform:translateY(0);
+                }
+            }
+
+           
+
+            .single_img{
+                position:absolute;
+                top:0;
+                left:0;
+                z-index:0;
+                transition: all 1s ease-out;
+
+                &:hover{
+                    cursor: pointer;
+                }  
+
+                &:active{
+                    animation: neon 1.5s ease-in-out infinite alternate;
+
+                    @keyframes neon{
+                            from {
+                              box-shadow: 0 0 5px $glow-darker, 0 0 10px $glow-darker, 0 0 15px $glow-darker,  0 0 20px $glow, 0 0 35px $glow, 0 0 40px $glow, 0 0 50px $glow, 0 0 75px $glow;
+                            }
+                            to {
+                              box-shadow: 0 02px $glow-darker, 0 0 5px $glow-darker, 0 0 7px $glow-darker, 0 0 10px $glow, 0 0 18px $glow, 0 0 20px $glow, 0 0 25px $glow, 0 0 38px $glow;
+                            }
+                    }
+                }
+            }
+
+              
+                .img{
+                    width:100%;
+                    height:auto;
+                    z-index:0;
+                    box-shadow: 1vw 1vh 2vh rgba(51, 51, 51, 0.5);
+                    transition: all 1s ease-out;  
+            } 
+
+            .fas{
+                position:absolute;
+                top:1%;
+                right:1%;
+                padding:5%;
+                font-size: 1.4vh;
+                z-index:1;
+                color:white;
+                
+             &:hover{
+                opacity:0.1;
+                z-index:3;  
+                }
+            
+                &:hover + .single_img{
+                    transform: scale(1.5) ;  
+                    z-index:2;
+                }
+              
+            }
+          
+
+          
+        }
+        .single_card1{
+            animation-delay: 0;
+        }
+        .single_card2{
+            animation-delay: 0.2s;
+        }
+        .single_card3{
+            animation-delay: 0.4s;
+        }
+        .single_card4{
+            animation-delay: 0.6s;
+        }
+        .single_card5{
+            animation-delay: 0.8s;
+        }
+
+    
+    }
+    
+
+        
+
+}
+
+
+
+    
+
+
+
+
